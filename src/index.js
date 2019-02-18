@@ -1,6 +1,6 @@
-import { realpathSync } from 'fs'
-import { dirname } from 'path'
-import { programVisitor } from 'js-lib-instrument'
+import {realpathSync} from 'fs'
+import {dirname} from 'path'
+import {programVisitor} from 'js-lib-instrument'
 
 const testExclude = require('test-exclude')
 const findUp = require('find-up')
@@ -16,7 +16,7 @@ function getRealpath (n) {
 function makeShouldSkip () {
   let exclude
   return function shouldSkip (file, opts) {
-    if (!exclude || exclude.cwd !== opts.cwd) {
+    if (!exclude) {
       const cwd = getRealpath(process.env.NYC_CWD || process.cwd())
       const nycConfig = process.env.NYC_CONFIG ? JSON.parse(process.env.NYC_CONFIG) : {}
 
@@ -44,18 +44,20 @@ function makeShouldSkip () {
         config
       ))
     }
+
     return !exclude.shouldInstrument(file)
   }
 }
 
-function makeVisitor ({ types: t }) {
+function makeVisitor ({types: t}) {
   const shouldSkip = makeShouldSkip()
   return {
     visitor: {
       Program: {
         enter (path) {
           this.__dv__ = null
-          const realPath = getRealpath(this.file.opts.filename)
+          // const realPath = getRealpath(this.file.opts.filename)
+          const realPath = getRealpath(this.opts.filename)
           if (shouldSkip(realPath, this.opts)) {
             return
           }
@@ -77,7 +79,8 @@ function makeVisitor ({ types: t }) {
           }
           const result = this.__dv__.exit(path)
           if (this.opts.onCover) {
-            this.opts.onCover(getRealpath(this.file.opts.filename), result.fileCoverage)
+            // this.opts.onCover(getRealpath(this.file.opts.filename), result.fileCoverage)
+            this.opts.onCover(getRealpath(this.opts.filename), result.fileCoverage)
           }
         }
       }
