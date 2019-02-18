@@ -1,9 +1,9 @@
 {
-  "name": "babel-plugin-istanbul",
-  "version": "5.1.1",
-  "author": "Thai Pangsakulyanont @dtinth",
+  "name": "babel-plugin-jscoco",
+  "version": "1.0.2",
+  "author": "tracy_ <503480078@qq.com>",
   "license": "BSD-3-Clause",
-  "description": "A babel plugin that adds istanbul instrumentation to ES6 code",
+  "description": "A babel plugin that adds coverage instrumentation to ES6 code",
   "main": "lib/index.js",
   "files": [
     "lib"
@@ -14,17 +14,16 @@
     "test-exclude": "^5.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.2.2",
-    "@babel/preset-env": "^7.2.3",
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
     "@babel/register": "^7.0.0",
-    "chai": "^4.2.0",
-    "coveralls": "^3.0.2",
-    "cross-env": "^5.2.0",
+    "chai": "^4.1.2",
+    "coveralls": "^3.0.1",
+    "cross-env": "^5.1.6",
     "mocha": "^5.2.0",
-    "nyc": "^13.1.0",
     "pmock": "^0.2.3",
-    "standard": "^12.0.1",
+    "standard": "^11.0.1",
     "standard-version": "^4.4.0"
   },
   "scripts": {
@@ -40,12 +39,7 @@
       "fixtures/has-inline-source-map.js"
     ]
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/istanbuljs/babel-plugin-istanbul.git"
-  },
   "keywords": [
-    "istanbul",
     "babel",
     "plugin",
     "instrumentation"
@@ -61,10 +55,6 @@
     "sourceMap": false,
     "instrument": false
   },
-  "bugs": {
-    "url": "https://github.com/istanbuljs/babel-plugin-istanbul/issues"
-  },
-  "homepage": "https://github.com/istanbuljs/babel-plugin-istanbul#readme",
   "engines": {
     "node": ">=6"
   }
