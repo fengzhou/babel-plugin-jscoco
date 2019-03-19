@@ -1,4 +1,4 @@
-# cus_babel-plugin-istanbul
+# babel-plugin-jscoco
 
 基于业务需求，对原有的babel-plugin-istanbul进行定制修改
 #### 1 定制instrument后，文件路径的显示。原有逻辑是插件内直接获取的file.opts.filename——改为可根据业务需求，进行配置。
