@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-jscoco",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "tracy_ <503480078@qq.com>",
   "license": "BSD-3-Clause",
   "description": "A babel plugin that adds coverage instrumentation to ES6 code",
@@ -10,7 +10,7 @@
   ],
   "dependencies": {
     "find-up": "^3.0.0",
-    "js-lib-instrument": "^1.0.2",
+    "js-lib-instrument": "^1.0.3",
     "test-exclude": "^5.0.0"
   },
   "devDependencies": {
